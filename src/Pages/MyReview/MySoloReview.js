@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const MySoloReview = ({ review, handleDelete }) => {
-    // console.log(review);
+    const { user } = useContext(AuthContext)
     const { message, _id } = review
 
 
@@ -17,7 +18,7 @@ const MySoloReview = ({ review, handleDelete }) => {
                             <div className='flex justify-between items-center'>
                                 <div className="flex flex-wrap items-center">
                                     <img className="mr-6 rounded-full" style={{ width: "60px", height: "60px" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThz02didkfPNU0p0ndhRaAxX7TZtfBppog3A&usqp=CAU" alt="" />
-                                    <h4 className="w-full md:w-auto text-xl font-heading font-medium">Faustina H. Fawn</h4>
+                                    <h4 className="w-full md:w-auto text-xl font-heading font-medium">{user?.displayName}</h4>
                                     <div className="w-full md:w-px h-2 md:h-8 mx-8 bg-transparent md:bg-gray-200"></div>
                                     <span className="mr-4 text-xl font-heading font-medium">5.0</span>
                                     <div className="inline-flex">

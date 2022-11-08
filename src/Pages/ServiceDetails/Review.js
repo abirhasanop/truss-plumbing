@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaTrashAlt } from "react-icons/fa";
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Review = ({ review, handleDelete }) => {
+    const { user } = useContext(AuthContext)
     const { message, _id } = review
     return (
         <div>
@@ -13,7 +15,7 @@ const Review = ({ review, handleDelete }) => {
                                 <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
                             </div>
                             <div>
-                                <h4 className="text-2xl font-bold">Leroy Jenkins</h4>
+                                <h4 className="text-2xl font-bold">{user?.displayName}</h4>
                                 <span className="text-xs dark:text-gray-400">2 days ago</span>
                             </div>
                         </div>
