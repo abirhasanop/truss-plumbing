@@ -30,6 +30,24 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch(`http://localhost:5000/jwt`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+
+
                 navigate(from, { replace: true })
                 toast.success("Login Succesfull")
             })
