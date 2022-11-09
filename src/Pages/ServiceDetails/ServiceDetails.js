@@ -9,7 +9,7 @@ import Review from './Review';
 const ServiceDetails = () => {
     useTitle("Service Details")
     const { user } = useContext(AuthContext)
-    console.log(user);
+    // console.log(user);
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [star, setStart] = useState(2)
@@ -53,8 +53,13 @@ const ServiceDetails = () => {
 
 
     // Displaying Review
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/review`)
+    //         .then(res => res.json())
+    //         .then(data => setReviews(data))
+    // }, [refresh])
     useEffect(() => {
-        fetch(`http://localhost:5000/review`)
+        fetch(`http://localhost:5000/allreview`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [refresh])
@@ -70,6 +75,7 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                toast.success("Succesfully deleted")
                 setRefresh(!refresh)
             })
     }

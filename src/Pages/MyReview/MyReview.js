@@ -7,7 +7,7 @@ import MySoloReview from './MySoloReview';
 const MyReview = () => {
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false)
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     useTitle("My Review")
 
     // Displaying Review
@@ -18,12 +18,21 @@ const MyReview = () => {
     // }, [refresh])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/review?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('trussPlumbingToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    logOut()
+                }
+                return res.json()
+            })
             .then(data => {
                 setReviews(data);
             })
-    }, [refresh, user?.email])
+    }, [refresh, user?.email, logOut])
 
 
     // Deleting Review

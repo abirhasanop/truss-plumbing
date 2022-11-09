@@ -46,10 +46,11 @@ const Login = () => {
                     .then(data => {
                         console.log(data);
                         localStorage.setItem("trussPlumbingToken", data.token)
+                        navigate(from, { replace: true })
                     })
 
 
-                navigate(from, { replace: true })
+
                 toast.success("Login Succesfull")
             })
             .catch(e => {
