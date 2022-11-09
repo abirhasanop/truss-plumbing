@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import bannerImg from '../../Assets/bannerImg.png'
+import useTitle from '../../Hooks/userTitle';
 import Footer from '../../Shared/Footer/Footer';
 import Service from './Service';
 
 const Home = () => {
     const [services, setServices] = useState([])
+    useTitle("Home")
 
     useEffect(() => {
         fetch(`http://localhost:5000/limitedServices`)

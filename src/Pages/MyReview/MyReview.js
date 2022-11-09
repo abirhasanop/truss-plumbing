@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../Hooks/userTitle';
 import MySoloReview from './MySoloReview';
 
 const MyReview = () => {
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false)
+    useTitle("My Review")
 
     // Displaying Review
     useEffect(() => {

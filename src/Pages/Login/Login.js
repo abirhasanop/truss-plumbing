@@ -3,9 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import useTitle from '../../Hooks/userTitle';
 
 const Login = () => {
     const { login, googleSignIn } = useContext(AuthContext)
+    useTitle("Login")
+
     const navigate = useNavigate()
     const location = useLocation()
     let from = location.state?.from?.pathname || "/"
@@ -62,7 +65,7 @@ const Login = () => {
             <div className="hero-content flex-col">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold">Login Now!</h1>
-                    <p className='text-center text-lg my-5'>Sign Up today to get best quality service in market. Our goal is not sell our services. <br /> Our Goal is to provide veluw to out clients</p>
+                    <p className='text-center text-lg my-5'>Sign Up today to get best quality service in market. Our goal is not sell our services. <br /> Our Goal is to provide velue to our clients</p>
                 </div>
                 <div style={{ width: "450px" }} className="card flex-shrink-0  shadow-2xl bg-base-100">
                     <div className="card-body">
