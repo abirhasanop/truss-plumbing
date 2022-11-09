@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <PrivateRoute><Allservices /></PrivateRoute>
+                element: <Allservices />
             },
             {
                 path: '/services/:id',
