@@ -1,9 +1,11 @@
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import bannerImg from '../../Assets/bannerImg.png'
+import useTitle from '../../Hooks/userTitle';
 
 const EditReviewPage = () => {
     const review = useLoaderData()
     const navigate = useNavigate()
+    useTitle("Edit Review")
 
     const router = useParams()
     const { id } = router

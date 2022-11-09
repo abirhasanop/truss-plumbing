@@ -49,9 +49,9 @@ const AddService = () => {
             <section className="flex">
                 <div className="w-full p-6 rounded-md sm:p-16 xl:col-span-2">
                     <span className="block mb-2 text-violet-400">Truss Plumbing</span>
-                    <h1 className="text-5xl font-extrabold mb-10">Edit Your Review</h1>
+                    <h1 className="text-5xl font-extrabold mb-10">Add New Service</h1>
                     <p className="my-8">
-                        <span className="font-medium">Your Current Review :</span>
+                        {/* <span className="font-medium">Your Current Review :</span> */}
                     </p>
                     <form onSubmit={handleSubmit} className="self-stretch space-y-3 ng-untouched ng-pristine ng-valid">
                         <div>

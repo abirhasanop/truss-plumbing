@@ -3,9 +3,11 @@ import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import useTitle from '../../Hooks/userTitle';
 import Review from './Review';
 
 const ServiceDetails = () => {
+    useTitle("Service Details")
     const { user } = useContext(AuthContext)
     console.log(user);
     const [reviews, setReviews] = useState([])
