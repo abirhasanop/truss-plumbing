@@ -8,7 +8,7 @@ const Review = ({ review, handleDelete }) => {
     return (
         <div>
             <section>
-                <div className="container flex flex-col w-1/2 p-6 divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+                <div className="container flex flex-col w-full lg:w-1/2 p-6 divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
                     <div className="flex justify-between p-4">
                         <div className="flex space-x-4">
                             <div>

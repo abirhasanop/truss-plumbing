@@ -6,7 +6,7 @@ import StarRatings from 'react-star-ratings';
 
 const Service = ({ service }) => {
     const [star, setStart] = useState(3)
-    const { picture, balance, raitng, title, about, _id } = service
+    const { picture, balance, title, about, _id } = service
 
     const myRatings = star / 1.5
 
@@ -47,7 +47,13 @@ const Service = ({ service }) => {
                 </section>
                 <div className='flex justify-between items-center mt-8'>
                     <h2 className='text-2xl text-primary font-semibold'>Price: {balance}</h2>
-                    <Link to={`/services/${_id}`}><button className='btn btn-primary'>Details</button></Link>
+                    <Link to={`/services/${_id}`}>
+                        {/* <button className='btn btn-primary'>Details</button> */}
+                        <a href="#_" class="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-indigo-600 active:shadow-none shadow-lg bg-gradient-to-tr from-indigo-600 to-indigo-500 border-indigo-700 text-white">
+                            <span class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+                            <span class="relative">Show Details</span>
+                        </a>
+                    </Link>
                 </div>
             </div>
 

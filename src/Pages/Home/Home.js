@@ -32,9 +32,17 @@ const Home = () => {
                                     </p>
                                     <div className='flex justify-center lg:justify-start'>
                                         <Link to='/services'>
-                                            <button className="btn btn-outline btn-primary btn-lg">
+                                            {/* <button className="btn btn-outline btn-primary btn-lg">
                                                 Learn More
-                                            </button>
+                                            </button> */}
+
+                                            <a href="#_" class="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
+                                                <span class="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                                                <span class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                                </span>
+                                                <span class="relative">Learn More</span>
+                                            </a>
                                         </Link>
                                     </div>
                                 </div>
@@ -53,7 +61,19 @@ const Home = () => {
                     }
                 </section>
                 <div className='flex justify-center mt-20'>
-                    <Link className="btn btn-outline btn-primary btn-sm font-bold shadow-md" to='/services'>See All</Link>
+                    {/* <Link className="btn btn-outline btn-primary btn-sm font-bold shadow-md" to='/services'>See All</Link> */}
+                    <Link className='shadow-lg' to='/services'>
+                        <a href="#_" class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group">
+                            <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"></span>
+                            <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </span>
+                            <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </span>
+                            <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">See All</span>
+                        </a>
+                    </Link>
                 </div>
             </div>
             <Footer />

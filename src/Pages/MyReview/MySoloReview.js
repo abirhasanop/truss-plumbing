@@ -12,7 +12,7 @@ const MySoloReview = ({ review, handleDelete }) => {
     return (
         <>
             <main>
-                <section className='w-1/2 bg-white my-5 shadow-xl mx-auto'>
+                <section className='w-11/12 lg:w-1/2 bg-white my-5 shadow-xl mx-auto'>
                     {/* Header Part */}
                     <div className="shadow-lg overflow-hidden">
                         <div className="pt-3 pb-3 md:pb-1 px-4 bg-slate-400 md:px-16 bg-opacity-40">
@@ -47,15 +47,9 @@ const MySoloReview = ({ review, handleDelete }) => {
                     </div>
 
 
-
-
-
-
-
-
                     {/* body part */}
                     <div className="px-4 overflow-hidden md:px-16 pt-8 pb-12 mt-0 bg-white">
-                        <div className="flex ">
+                        <div className="lg:flex">
                             <div className="w-full md:w-2/3 mb-6 md:mb-0">
                                 <p className="mb-8 max-w-2xl text-darkBlueGray-400 leading-loose">{message}</p><hr />
                                 <div className="w-full">
@@ -63,7 +57,7 @@ const MySoloReview = ({ review, handleDelete }) => {
                                     <p className="text-lg">{serviceDetails.slice(0, 320) + "..."}</p>
                                 </div>
                             </div>
-                            <div className="w-full  md:w-1/3 ">
+                            <div className="w-full md:w-1/3 ">
                                 <p className="mb-8 text-sm text-gray-300 text-right">Added 2 months ago</p>
                                 <img className='w-72 mt-14' src={servicePicture} alt="" />
                             </div>
