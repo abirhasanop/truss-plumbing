@@ -20,7 +20,7 @@ const ServiceDetails = () => {
         const form = event.target
         const message = form.message.value
         if (!message) {
-            return toast.error("Please Add a review")
+            return toast.error("Please Add A Review")
         }
 
         const review = {
