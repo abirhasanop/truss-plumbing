@@ -1,19 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../Contexts/AuthProvider';
 import useTitle from '../../Hooks/userTitle';
 import MySoloReview from './MySoloReview';
 
 const MyReview = () => {
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false)
+    const { user } = useContext(AuthContext)
     useTitle("My Review")
 
     // Displaying Review
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/review`)
+    //         .then(res => res.json())
+    //         .then(data => setReviews(data))
+    // }, [refresh])
+
     useEffect(() => {
-        fetch(`http://localhost:5000/review`)
+        fetch(`http://localhost:5000/review?email=${user?.email}`)
             .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [refresh])
+            .then(data => {
+                setReviews(data);
+            })
+    }, [refresh, user?.email])
 
 
     // Deleting Review

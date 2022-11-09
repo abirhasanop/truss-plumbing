@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaTrashAlt } from "react-icons/fa";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Review = ({ review, handleDelete }) => {
+    const { user } = useContext(AuthContext)
     const { message, _id, userName, userImage, userEmail } = review
     return (
         <div>
@@ -20,7 +22,15 @@ const Review = ({ review, handleDelete }) => {
                             </div>
                         </div>
                         <div className="flex items-center space-x-2 dark:text-yellow-500">
-                            <FaTrashAlt onClick={() => handleDelete(_id)} className='text-xl hover:text-red-600 cursor-pointer' />
+                            {
+                                user?.email === userEmail ?
+                                    <FaTrashAlt onClick={() => handleDelete(_id)} className='text-xl hover:text-red-600 cursor-pointer' />
+                                    :
+                                    <>
+                                        {/* <p className='font-bold text-red-600'>You Can't Delete Others Review</p> */}
+                                    </>
+
+                            }
                             <Link title='Go To My Review Page' to='/myreview'><HiArrowNarrowRight className='text-primary font-bold text-3xl' /></Link>
                         </div>
                     </div>
