@@ -60,7 +60,12 @@ const MyReview = () => {
     return (
         <>
             {
-                reviews.map(review => <MySoloReview key={review._id} review={review} handleDelete={handleDelete} handleEdit={handleEdit} />)
+                reviews.length > 0 ?
+                    reviews.map(review => <MySoloReview key={review._id} review={review} handleDelete={handleDelete} handleEdit={handleEdit} />)
+                    :
+                    <>
+                        <h2 className='text-xl text-center font-semibold'>No Review Found. Please Go To The Service Page To Add A Review</h2>
+                    </>
             }
         </>
     );
