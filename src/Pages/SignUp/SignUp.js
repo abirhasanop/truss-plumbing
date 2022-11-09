@@ -86,8 +86,8 @@ const SignUp = () => {
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
                     <p className='text-center text-lg my-5'>Sign Up today to get best quality service in market. Our goal is not sell our services. <br /> Our Goal is to provide veluw to out clients</p>
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div className="card-body">
+                <div className="card flex-shrink-0 shadow-2xl bg-base-100">
+                    <div className="card-body ">
                         <form onSubmit={handleSubmit} className="">
                             <div className="form-control">
                                 <label className="label">

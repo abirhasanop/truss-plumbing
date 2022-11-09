@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
+import { AuthContext } from '../../Contexts/AuthProvider';
 import Review from './Review';
 
 const ServiceDetails = () => {
+    const { user } = useContext(AuthContext)
+    console.log(user);
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [star, setStart] = useState(2)
@@ -16,9 +19,18 @@ const ServiceDetails = () => {
         event.preventDefault()
         const form = event.target
         const message = form.message.value
+        if (!message) {
+            return toast.error("Please Add a review")
+        }
 
         const review = {
-            message: message
+            message: message,
+            userName: user?.displayName,
+            userImage: user.photoURL,
+            serviceTitle: title,
+            servicePicture: picture,
+            serviceDetails: about,
+            userEmail: user?.email
         }
         fetch(`http://localhost:5000/review`, {
             method: 'POST',
@@ -87,7 +99,7 @@ const ServiceDetails = () => {
                     {/* Displaying Review */}
                     {
                         reviews.length > 0 ?
-                            reviews.map(review => <Review key={review._id} review={review} handleDelete={handleDelete} />)
+                            reviews.map(review => <Review star={star} key={review._id} review={review} handleDelete={handleDelete} />)
                             :
                             <h2 className='text-xl text-center font-semibold'>This Service has no reviews. <br /> Let others know what you think and be the first to write a review.</h2>
                     }
@@ -103,6 +115,7 @@ const ServiceDetails = () => {
                             <div className="flex flex-col items-center w-full">
                                 <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                                 <div className="flex flex-col items-center py-6 space-y-3">
+                                    <span className="text-center text-lg font-semibold">Rating: {star}</span>
                                     <span className="text-center">How was your experience?</span>
 
                                     {/* React starts */}
