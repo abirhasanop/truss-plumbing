@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import useTitle from '../../Hooks/userTitle';
@@ -10,6 +10,7 @@ const ServiceDetails = () => {
     useTitle("Service Details")
     const { user } = useContext(AuthContext)
     // console.log(user);
+    const location = useLocation()
     const [reviews, setReviews] = useState([])
     const [refresh, setRefresh] = useState(false)
     const [star, setStart] = useState(2)
@@ -113,18 +114,14 @@ const ServiceDetails = () => {
                             user?.uid ?
                                 reviews.map(review => <Review star={star} key={review._id} review={review} handleDelete={handleDelete} />)
                                 :
-                                <h2 className='text-xl text-red-500 text-center font-semibold'>You Need to Login Before adding a Review.
-                                    <Link className='link link-primary ml-3 hover:text-success' to='/login'>Login Now</Link>
-                                </h2>
+                                <></>
                             :
                             user?.uid ?
                                 <h2 className='text-xl text-center text-red-500  font-semibold'>This Service has no reviews. <br /> Let others know what you think and be the first to write a review.
 
                                 </h2>
                                 :
-                                <h2 className='text-xl text-center font-semibold'>You Need to Login Before adding a Review.
-                                    <Link className='link link-primary ml-3 hover:text-success' to='/login'>Login Now</Link>
-                                </h2>
+                                <></>
                     }
 
                     {/* Asking user to login before review */}
@@ -140,33 +137,42 @@ const ServiceDetails = () => {
                     {/* Review Form */}
                     <form onSubmit={handleReview} className='w-full bg-indigo-100 mx-auto mb-20'>
                         <div className="w-1/2 mx-auto flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
-                            <div className="flex flex-col items-center w-full">
-                                <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
-                                <div className="flex flex-col items-center py-6 space-y-3">
-                                    <span className="text-center text-lg font-semibold">Rating: {star}</span>
-                                    <span className="text-center">How was your experience?</span>
+                            {
+                                user?.uid ?
+                                    <div className="flex flex-col items-center w-full">
+                                        <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
+                                        <div className="flex flex-col items-center py-6 space-y-3">
+                                            <span className="text-center text-lg font-semibold">Rating: {star}</span>
+                                            <span className="text-center">How was your experience?</span>
 
-                                    {/* React starts */}
-                                    <section>
-                                        <StarRatings
-                                            rating={star}
-                                            starRatedColor="blue"
-                                            changeRating={(newStar) => setStart(newStar)}
-                                            numberOfStars={5}
-                                            name='rating'
-                                        />
-                                    </section>
-                                </div>
-                                <div className="flex flex-col w-full">
-                                    <textarea name='message' rows="3" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
-                                    {/* <button className="py-4 my-8 font-bold rounded-md text-primary btn btn-ghost">Leave feedback</button> */}
-                                    <button className="relative my-8 rounded px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
-                                        <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                                        <span className="relative">Add Review</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="flex items-center justify-center">
+                                            {/* React starts */}
+                                            <section>
+                                                <StarRatings
+                                                    rating={star}
+                                                    starRatedColor="blue"
+                                                    changeRating={(newStar) => setStart(newStar)}
+                                                    numberOfStars={5}
+                                                    name='rating'
+                                                />
+                                            </section>
+                                        </div>
+                                        <div className="flex flex-col w-full">
+                                            <textarea name='message' rows="3" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
+                                            {/* <button className="py-4 my-8 font-bold rounded-md text-primary btn btn-ghost">Leave feedback</button> */}
+                                            <button className="relative my-8 rounded px-5 py-2.5 overflow-hidden group bg-green-500 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                                                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                                                <span className="relative">Add Review</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    :
+                                    <>
+                                        <h2 className='text-2xl text-center font-semibold'>You Need to Login Before adding a Review. <br />
+                                            <Link state={{ from: location }} className='link link-primary ml-3 hover:text-success' to='/login'>Login Now</Link>
+                                        </h2>
+                                    </>
+                            }
+                            <div className="flex items-center justify-center mt-5">
                                 <Link to='/' rel="noopener noreferrer" className="text-sm dark:text-gray-400">Maybe later</Link>
                             </div>
                         </div>

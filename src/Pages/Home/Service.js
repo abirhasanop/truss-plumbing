@@ -51,7 +51,7 @@ const Service = ({ service }) => {
                     />
                 </section>
                 <div className='flex justify-between items-center mt-8'>
-                    <h2 className='text-2xl text-primary font-semibold'>Price: {balance}</h2>
+                    <h2 className='text-2xl text-primary font-semibold'>Price: ${balance}</h2>
                     <Link to={`/services/${_id}`}>
                         {/* <button className='btn btn-primary'>Details</button> */}
                         <a href="#_" className="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-indigo-600 active:shadow-none shadow-lg bg-gradient-to-tr from-indigo-600 to-indigo-500 border-indigo-700 text-white">
