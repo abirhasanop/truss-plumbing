@@ -111,17 +111,15 @@ const ServiceDetails = () => {
                     {/* Displaying Review */}
                     {
                         reviews.length > 0 ?
-                            user?.uid ?
-                                reviews.map(review => <Review star={star} key={review._id} review={review} handleDelete={handleDelete} />)
-                                :
-                                <></>
-                            :
-                            user?.uid ?
-                                <h2 className='text-xl text-center text-red-500  font-semibold'>This Service has no reviews. <br /> Let others know what you think and be the first to write a review.
 
-                                </h2>
-                                :
-                                <></>
+                            reviews.map(review => <Review star={star} key={review._id} review={review} handleDelete={handleDelete} />)
+
+                            :
+
+                            <h2 className='text-xl text-center text-red-500  font-semibold'>This Service has no reviews. <br /> Let others know what you think and be the first to write a review.
+
+                            </h2>
+
                     }
 
                     {/* Asking user to login before review */}
