@@ -25,6 +25,8 @@ const ServiceDetails = () => {
             return toast.error("Please Write Something on the Field")
         }
 
+        const date = new Date()
+
         const review = {
             message: message,
             userName: user?.displayName,
@@ -32,7 +34,8 @@ const ServiceDetails = () => {
             serviceTitle: title,
             servicePicture: picture,
             serviceDetails: about,
-            userEmail: user?.email
+            userEmail: user?.email,
+            date: date
         }
         fetch(`http://localhost:5000/review`, {
             method: 'POST',

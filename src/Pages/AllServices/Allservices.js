@@ -34,7 +34,7 @@ const Allservices = () => {
                         />
                     </div>
                     :
-                    <div className='container mx-auto'>
+                    <div className='flex md:block md:container md:mx-auto justify-center'>
                         <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5'>
                             {
                                 services.map(service => <Service key={service._id} service={service} />)

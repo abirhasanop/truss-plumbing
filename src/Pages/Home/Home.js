@@ -75,11 +75,11 @@ const Home = () => {
                 {/* about us */}
                 <section className='my-16 mx-auto'>
                     <h1 className="text-6xl font-bold text-center my-8">About Us</h1>
-                    <div className='flex justify-between items-center'>
+                    <div className='lg:flex justify-between items-center'>
                         <img style={{ width: "600px", height: "400px" }} className='rounded-lg' src={aboutImg} alt="" />
                         <div className='flex flex-col '>
                             <h1 className='text-4xl font-bold mb-6 text-center'>Dependable HVAC Service You Can Trust</h1>
-                            <p className='lg:ml-32 text-xl'>We specialize in full service heating & air conditioning sales and service – offering the highest quality of service, support and equipment to our customers. <br />
+                            <p className='lg:ml-32 lg:text-start text-center text-xl'>We specialize in full service heating & air conditioning sales and service – offering the highest quality of service, support and equipment to our customers. <br />
 
                                 Whether you are in need of an annual maintenance agreement, emergency repair, replacement, or complimentary energy audit, we want to be there for you every step of the way. With prompt emergency dispatch, our N.A.T.E certified technicians are prepared at a moments notice.</p>
                         </div>
@@ -104,11 +104,13 @@ const Home = () => {
                             />
                         </div>
                         :
-                        <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 mt-28'>
-                            {
-                                services.map(service => <Service key={service._id} service={service} />)
-                            }
-                        </section>
+                        <div className='flex md:block justify-center'>
+                            <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 mt-28'>
+                                {
+                                    services.map(service => <Service key={service._id} service={service} />)
+                                }
+                            </section>
+                        </div>
                 }
                 <div className='flex justify-center mt-20'>
                     {/* <Link className="btn btn-outline btn-primary btn-sm font-bold shadow-md" to='/services'>See All</Link> */}
