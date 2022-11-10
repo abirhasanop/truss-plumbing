@@ -152,7 +152,7 @@ const ServiceDetails = () => {
                                             rating={star}
                                             starRatedColor="blue"
                                             changeRating={(newStar) => setStart(newStar)}
-                                            numberOfStars={6}
+                                            numberOfStars={5}
                                             name='rating'
                                         />
                                     </section>

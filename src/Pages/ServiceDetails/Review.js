@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FaTrashAlt } from "react-icons/fa";
 import { HiArrowNarrowRight } from "react-icons/hi";
+import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
@@ -12,12 +13,13 @@ const Review = ({ review, handleDelete }) => {
             <section>
                 <div className="container flex flex-col w-full lg:w-1/2 p-6 divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
                     <div className="flex justify-between p-4">
-                        <div className="flex space-x-4">
+                        <div className="flex items-center space-x-4">
                             <div>
                                 <img src={userImage} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
                             </div>
                             <div>
                                 <h4 className="text-2xl font-bold">{userName}</h4>
+                                <span className="text-base text-primary dark:text-gray-400"><Moment fromNow>{new Date(review.date)}</Moment></span><br />
                                 <span className="text-xs dark:text-gray-400">{userEmail}</span>
                             </div>
                         </div>

@@ -34,7 +34,29 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate(from, { replace: true })
+
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch(`http://localhost:5000/jwt`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem("trussPlumbingToken", data.token)
+                        navigate(from, { replace: true })
+                    })
+
+
+
+                // navigate(from, { replace: true })
                 handleUpdateUser(name, photoURL)
                 toast.success("Account Created")
             })
@@ -67,7 +89,30 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
-                navigate(from, { replace: true })
+
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                fetch(`http://localhost:5000/jwt`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem("trussPlumbingToken", data.token)
+                        navigate(from, { replace: true })
+                    })
+
+
+
+
+                // navigate(from, { replace: true })
                 toast.success("Login Succesfull")
             })
             .catch(e => {

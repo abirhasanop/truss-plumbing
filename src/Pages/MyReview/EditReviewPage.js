@@ -37,7 +37,7 @@ const EditReviewPage = () => {
 
     return (
         <div className='container mx-auto'>
-            <section className="flex">
+            <section className="lg:flex">
                 <div className="w-full p-6 rounded-md sm:p-16 xl:col-span-2">
                     <span className="block mb-2 text-violet-400">Truss Plumbing</span>
                     <h1 className="text-5xl font-extrabold mb-10">Edit Your Review</h1>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 
 const MySoloReview = ({ review, handleDelete }) => {
     const [star, setStart] = useState(2)
+
 
     const { message, _id, serviceDetails, servicePicture, serviceTitle, userImage, userName } = review
 
@@ -29,7 +31,7 @@ const MySoloReview = ({ review, handleDelete }) => {
                                                 rating={star}
                                                 starRatedColor="blue"
                                                 changeRating={(newStar) => setStart(newStar)}
-                                                numberOfStars={6}
+                                                numberOfStars={5}
                                                 name='rating'
                                                 starDimension="30px"
                                             // starSpacing="25px"
@@ -58,7 +60,7 @@ const MySoloReview = ({ review, handleDelete }) => {
                                 </div>
                             </div>
                             <div className="w-full md:w-1/3 ">
-                                <p className="mb-8 text-sm text-gray-300 text-right">Added 2 months ago</p>
+                                <p className="mb-8 text-sm text-gray-300 text-right"><Moment fromNow>{new Date(review.date)}</Moment></p>
                                 <img className='w-72 mt-14' src={servicePicture} alt="" />
                             </div>
                         </div>
