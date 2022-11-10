@@ -74,7 +74,8 @@ const Header = () => {
                                 user?.uid ?
                                     <div className='flex items-center'>
                                         <li className='font-semibold mr-5 list-none'>{user?.displayName}</li>
-                                        <img style={{ width: "50px", height: '50px' }} className="rounded-full" src={user?.photoURL} alt="" />
+                                        {/* <img style={{ width: "50px", height: '50px' }} className="rounded-full" src={user?.photoURL} alt="" /> */}
+                                        <FaUserAlt className='text-xl text-primary' />
                                     </div>
                                     :
                                     <FaUserAlt className='text-xl text-primary' />

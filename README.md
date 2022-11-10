@@ -20,15 +20,15 @@ Our goal is to provide  value and result for Clients by their requirements
 
 Clone the application from github using this link:
 
-- [x] https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-abirhasanop
+- [x] https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-abirhasanop
 
 Live Website Link: 
 
-- [x] https://assignment-10-d5ca4.web.app/
+- [x] https://assignment-11-ad206.web.app/
 From the project directory run: -
 
 Server Link: 
-- [x] https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-abirhasanop
+- [x] https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-abirhasanop
 
 - [x] npm install.
   > Once the node_modules installed -
