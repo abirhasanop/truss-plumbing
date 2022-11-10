@@ -60,7 +60,7 @@ const MySoloReview = ({ review, handleDelete }) => {
                                 </div>
                             </div>
                             <div className="w-full md:w-1/3 ">
-                                <p className="mb-8 text-sm text-gray-300 text-right"><Moment fromNow>{new Date(review.date)}</Moment></p>
+                                <p className="mb-8 text-sm text-primary font-semibold text-right"><Moment fromNow>{new Date(review.date)}</Moment></p>
                                 <img className='w-72 mt-14' src={servicePicture} alt="" />
                             </div>
                         </div>

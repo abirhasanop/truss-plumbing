@@ -47,8 +47,8 @@ const Header = () => {
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal p-0">
                             <li className='font-semibold'><Link to='/'>Home</Link></li>
-                            <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
                             <li className='font-semibold'><Link to='/services'>Services</Link></li>
+                            <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
                             {/* <li className='font-semibold'><Link to='/signup'>Sign Up</Link></li> */}
                             {/* <li className='font-semibold'><Link to='/login'>Login</Link></li> */}
                             {/* <li onClick={logOut}><Link>Log Out</Link></li> */}

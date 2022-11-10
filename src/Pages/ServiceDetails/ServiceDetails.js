@@ -37,7 +37,7 @@ const ServiceDetails = () => {
             userEmail: user?.email,
             date: date
         }
-        fetch(`http://localhost:5000/review`, {
+        fetch(`https://assignment11-server-beta.vercel.app/review`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -57,12 +57,12 @@ const ServiceDetails = () => {
 
     // Displaying Review
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/review`)
+    //     fetch(`https://assignment11-server-beta.vercel.app/review`)
     //         .then(res => res.json())
     //         .then(data => setReviews(data))
     // }, [refresh])
     useEffect(() => {
-        fetch(`http://localhost:5000/allreview`)
+        fetch(`https://assignment11-server-beta.vercel.app/allreview`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [refresh])
@@ -72,7 +72,7 @@ const ServiceDetails = () => {
 
     // Deleting Review
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://assignment11-server-beta.vercel.app/review/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -98,7 +98,7 @@ const ServiceDetails = () => {
                             <h3 className=' mt-4 text-5xl font-semibold'>{title}</h3>
                             <h4 className=' mt-4 text-xl font-semibold'>Rating: {raitng}</h4>
                             <h4 className=' mt-4 text-xl font-semibold'>Work Time: 6h</h4>
-                            <h3 className=' mt-4 text-xl font-semibold'>Total </h3>
+                            {/* <h3 className=' mt-4 text-xl font-semibold'>Total </h3> */}
                             <p className='mt-3'>Available: 24/7</p>
                             <h2 className='text-4xl font-semibold mt-10 text-pink-500'>Service Cost: ${balance}</h2>
                         </div>

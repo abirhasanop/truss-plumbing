@@ -12,7 +12,7 @@ const Topbanner = () => {
                         <p className='text-xl text-slate-200 my-4'>Our plumbing professionals are thoroughly trained to assess the  situation and effectively  respond in a way that <br /> treats the source of the problems.</p>
                         <div className='text-center'>
                             <Link to='/services'>
-                                <button className='btn bg-purple-700 btn-lg'>Take Service</button>
+                                <button className='btn btn-primary btn-lg'>Take Service</button>
                             </Link>
                         </div>
                     </div>

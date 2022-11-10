@@ -13,13 +13,13 @@ const MyReview = () => {
 
     // Displaying Review
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/review`)
+    //     fetch(`https://assignment11-server-beta.vercel.app/review`)
     //         .then(res => res.json())
     //         .then(data => setReviews(data))
     // }, [refresh])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`, {
+        fetch(`https://assignment11-server-beta.vercel.app/review?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('trussPlumbingToken')}`
             }
@@ -38,7 +38,7 @@ const MyReview = () => {
 
     // Deleting Review
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/review/${_id}`, {
+        fetch(`https://assignment11-server-beta.vercel.app/review/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

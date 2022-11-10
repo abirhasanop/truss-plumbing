@@ -14,7 +14,7 @@ const Home = () => {
     useTitle("Home")
 
     useEffect(() => {
-        fetch(`http://localhost:5000/limitedServices`)
+        fetch(`https://assignment11-server-beta.vercel.app/limitedServices`)
             .then(res => res.json())
             .then(data => {
                 setLoding(false)

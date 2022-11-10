@@ -20,7 +20,7 @@ const EditReviewPage = () => {
             message: message
         }
 
-        fetch(`http://localhost:5000/review/${id}`, {
+        fetch(`https://assignment11-server-beta.vercel.app/review/${id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'

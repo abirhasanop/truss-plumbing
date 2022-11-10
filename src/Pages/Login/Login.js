@@ -35,7 +35,7 @@ const Login = () => {
                     email: user.email
                 }
 
-                fetch(`http://localhost:5000/jwt`, {
+                fetch(`https://assignment11-server-beta.vercel.app/jwt`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ const Login = () => {
                     email: user.email
                 }
 
-                fetch(`http://localhost:5000/jwt`, {
+                fetch(`https://assignment11-server-beta.vercel.app/jwt`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

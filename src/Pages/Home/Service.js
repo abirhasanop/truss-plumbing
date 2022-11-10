@@ -4,6 +4,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import StarRatings from 'react-star-ratings';
 import useTitle from '../../Hooks/userTitle';
+import Moment from 'react-moment';
 
 const Service = ({ service }) => {
     const [star, setStart] = useState(3)
@@ -22,10 +23,11 @@ const Service = ({ service }) => {
             </PhotoProvider>
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{title}</div>
-                <p className="text-gray-700 text-base">{about.length > 100 ? about.slice(0, 100) + "..." : about}</p>
+                <p className="text-gray-700 text-base mb-3">{about.length > 100 ? about.slice(0, 100) + "..." : about}</p>
+                <span className="text-base font-semibold text-primary dark:text-gray-400">Added: <Moment fromNow>{new Date(service.date)}</Moment></span>
                 {/* <p className="text-gray-700 text-base">{about}</p> */}
             </div>
-            <div className="px-6 pt-4 pb-2">
+            <div className="px-6 p-2 pb-2">
                 <div>
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Rating:{myRatings.toFixed(2)}
                     </span>

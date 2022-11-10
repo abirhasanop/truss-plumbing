@@ -19,7 +19,7 @@ const Review = ({ review, handleDelete }) => {
                             </div>
                             <div>
                                 <h4 className="text-2xl font-bold">{userName}</h4>
-                                <span className="text-base text-primary dark:text-gray-400"><Moment fromNow>{new Date(review.date)}</Moment></span><br />
+                                <span className="text-base font-semibold text-primary dark:text-gray-400"><Moment fromNow>{new Date(review.date)}</Moment></span><br />
                                 <span className="text-xs dark:text-gray-400">{userEmail}</span>
                             </div>
                         </div>

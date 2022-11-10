@@ -20,16 +20,19 @@ const AddService = () => {
             return toast.error("Please Fillup All The Fields")
         }
 
+        const date = new Date()
+
 
         const newService = {
             balance: price,
             raitng: 4.9,
             picture: photoURL,
             title: serviceName,
-            about: about
+            about: about,
+            date: date
         }
 
-        fetch(`http://localhost:5000/services`, {
+        fetch(`https://assignment11-server-beta.vercel.app/services`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
