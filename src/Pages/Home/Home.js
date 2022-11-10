@@ -4,21 +4,31 @@ import bannerImg from '../../Assets/bannerImg.png'
 import useTitle from '../../Hooks/userTitle';
 import Footer from '../../Shared/Footer/Footer';
 import Service from './Service';
+import aboutImg from '../../Assets/aboutus.jpg'
+import Topbanner from './TopBanner';
+import { MagnifyingGlass } from 'react-loader-spinner';
 
 const Home = () => {
+    const [isLoding, setLoding] = useState(true)
     const [services, setServices] = useState([])
     useTitle("Home")
 
     useEffect(() => {
         fetch(`http://localhost:5000/limitedServices`)
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => {
+                setLoding(false)
+                setServices(data)
+            })
     }, [])
 
     return (
         <>
+            <Topbanner />
             <div className='container mx-auto'>
                 {/* Carousel */}
+
+
 
 
 
@@ -61,12 +71,45 @@ const Home = () => {
                     </div>
                 </section>
 
-                {/* services section */}
-                <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5'>
-                    {
-                        services.map(service => <Service key={service._id} service={service} />)
-                    }
+
+                {/* about us */}
+                <section className='my-16 mx-auto'>
+                    <h1 className="text-6xl font-bold text-center my-8">About Us</h1>
+                    <div className='flex justify-between items-center'>
+                        <img style={{ width: "600px", height: "400px" }} className='rounded-lg' src={aboutImg} alt="" />
+                        <div className='flex flex-col '>
+                            <h1 className='text-4xl font-bold mb-6 text-center'>Dependable HVAC Service You Can Trust</h1>
+                            <p className='lg:ml-32 text-xl'>We specialize in full service heating & air conditioning sales and service – offering the highest quality of service, support and equipment to our customers. <br />
+
+                                Whether you are in need of an annual maintenance agreement, emergency repair, replacement, or complimentary energy audit, we want to be there for you every step of the way. With prompt emergency dispatch, our N.A.T.E certified technicians are prepared at a moments notice.</p>
+                        </div>
+
+                    </div>
                 </section>
+
+
+                {/* services section */}
+                {
+                    isLoding ?
+                        <div className='flex justify-center'>
+                            <MagnifyingGlass
+                                visible={true}
+                                height="80"
+                                width="80"
+                                ariaLabel="MagnifyingGlass-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="MagnifyingGlass-wrapper"
+                                glassColor='#c0efff'
+                                color='#e15b64'
+                            />
+                        </div>
+                        :
+                        <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 mt-28'>
+                            {
+                                services.map(service => <Service key={service._id} service={service} />)
+                            }
+                        </section>
+                }
                 <div className='flex justify-center mt-20'>
                     {/* <Link className="btn btn-outline btn-primary btn-sm font-bold shadow-md" to='/services'>See All</Link> */}
                     <Link className='shadow-xl' to='/services'>

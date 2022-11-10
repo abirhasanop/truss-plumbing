@@ -37,7 +37,6 @@ const SignUp = () => {
                 navigate(from, { replace: true })
                 handleUpdateUser(name, photoURL)
                 toast.success("Account Created")
-                toast.success("Check Your Email To Verify")
             })
             .catch(e => {
                 console.error(e)
@@ -95,25 +94,25 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input name='name' type="text" placeholder="Name" className="input input-bordered" />
+                                <input name='name' type="text" placeholder="Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo Url</span>
                                 </label>
-                                <input name='photoURL' type="text" placeholder="Photo Url" className="input input-bordered" />
+                                <input name='photoURL' type="text" placeholder="Photo Url" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input name='email' type="email" placeholder="email" className="input input-bordered" />
+                                <input name='email' type="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input name='password' type="password" placeholder="password" className="input input-bordered" />
+                                <input name='password' type="password" placeholder="password" className="input input-bordered" required />
                                 <label className="label">
                                     <p href="#" className="label-text-alt link link-hover">
                                         <Link to='/login'>Already have an account? Login</Link>

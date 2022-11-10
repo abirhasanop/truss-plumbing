@@ -58,16 +58,16 @@ const MyReview = () => {
     // console.log(reviews);
 
     return (
-        <>
+        <div className='bg-slate-100'>
             {
                 reviews.length > 0 ?
                     reviews.map(review => <MySoloReview key={review._id} review={review} handleDelete={handleDelete} handleEdit={handleEdit} />)
                     :
-                    <>
-                        <h2 className='text-xl text-center font-semibold'>No Review Found. Please Go To The Service Page To Add A Review</h2>
-                    </>
+                    <div>
+                        <h2 className='text-xl text-center font-semibold mt-96'>No reviews were added</h2>
+                    </div>
             }
-        </>
+        </div>
     );
 };
 
