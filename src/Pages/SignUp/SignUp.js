@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { FaGoogle } from "react-icons/fa";
@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import useTitle from '../../Hooks/userTitle';
 
 const SignUp = () => {
+    const [isLoding, setLoding] = useState(false)
     const { createUserWithEmail, googleSignIn, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -24,10 +25,12 @@ const SignUp = () => {
         // console.log(name, email, password)
 
 
+
         // validation
         if (password.length < 6) {
             return toast.error("Password Must Have 6 Charecters")
         }
+        setLoding(true)
 
         // Email sing up
         createUserWithEmail(email, password)
@@ -40,7 +43,7 @@ const SignUp = () => {
                     email: user.email
                 }
 
-                fetch(`https://assignment11-server-beta.vercel.app/jwt`, {
+                fetch(`${process.env.REACT_APP_SERVER_URL}/jwt`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -52,6 +55,7 @@ const SignUp = () => {
                         console.log(data);
                         localStorage.setItem("trussPlumbingToken", data.token)
                         navigate(from, { replace: true })
+                        setLoding(false)
                     })
 
 
@@ -63,6 +67,7 @@ const SignUp = () => {
             .catch(e => {
                 console.error(e)
                 toast.error(e.message)
+                setLoding(false)
             })
 
 
@@ -107,6 +112,7 @@ const SignUp = () => {
                         console.log(data);
                         localStorage.setItem("trussPlumbingToken", data.token)
                         navigate(from, { replace: true })
+
                     })
 
 
@@ -119,6 +125,7 @@ const SignUp = () => {
                 console.error(e)
                 const eMessage = e.message.slice()
                 toast.error(eMessage)
+
             })
     }
 
@@ -130,6 +137,12 @@ const SignUp = () => {
             <div className="hero-content flex-col">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
+                    {
+                        isLoding ?
+                            <div className="w-16 h-16 border-4 mx-auto border-dashed rounded-full animate-spin border-violet-400"></div>
+                            :
+                            <></>
+                    }
                     <p className='text-center text-lg my-5'>Sign Up today to get best quality service in market. Our goal is not sell our services. <br /> Our Goal is to provide velue to our clients</p>
                 </div>
                 <div style={{ width: "450px" }} className="card flex-shrink-0 shadow-2xl bg-base-100">

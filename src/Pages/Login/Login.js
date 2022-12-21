@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import toast from 'react-hot-toast';
@@ -7,6 +7,7 @@ import useTitle from '../../Hooks/userTitle';
 
 const Login = () => {
     const { login, googleSignIn } = useContext(AuthContext)
+    const [isLoding, setLoding] = useState(false)
     useTitle("Login")
 
     const navigate = useNavigate()
@@ -21,9 +22,11 @@ const Login = () => {
         const password = form.password.value
         console.log(name, email, password)
 
+
         if (password.length < 6) {
             return toast.error("Password Must Have 6 Charecters")
         }
+        setLoding(true)
 
 
         login(email, password)
@@ -47,6 +50,7 @@ const Login = () => {
                         console.log(data);
                         localStorage.setItem("trussPlumbingToken", data.token)
                         navigate(from, { replace: true })
+                        setLoding(false)
                     })
 
 
@@ -57,6 +61,7 @@ const Login = () => {
                 console.error(e)
                 const eMessage = e.message.slice()
                 toast.error(eMessage)
+                setLoding(false)
             })
     }
 
@@ -108,6 +113,12 @@ const Login = () => {
             <div className="hero-content flex-col">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold">Login Now!</h1>
+                    {
+                        isLoding ?
+                            <div className="w-16 h-16 border-4 mx-auto border-dashed rounded-full animate-spin border-violet-400"></div>
+                            :
+                            <></>
+                    }
                     <p className='text-center text-lg my-5'>Sign Up today to get best quality service in market. Our goal is not sell our services. <br /> Our Goal is to provide velue to our clients</p>
                 </div>
                 <div style={{ width: "450px" }} className="card flex-shrink-0  shadow-2xl bg-base-100">

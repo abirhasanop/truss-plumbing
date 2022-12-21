@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import StarRatings from 'react-star-ratings';
-import useTitle from '../../Hooks/userTitle';
+// import useTitle from '../../Hooks/userTitle';
 import Moment from 'react-moment';
 
 const Service = ({ service }) => {
     const [star, setStart] = useState(3)
     const { picture, balance, title, about, _id } = service
-    useTitle("Services")
+    // useTitle("Services")
 
     const myRatings = star / 1.5
 

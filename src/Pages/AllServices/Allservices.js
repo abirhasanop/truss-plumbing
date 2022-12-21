@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { MagnifyingGlass } from 'react-loader-spinner';
+import useTitle from '../../Hooks/userTitle';
 import Footer from '../../Shared/Footer/Footer';
 import Service from '../Home/Service';
 
 const Allservices = () => {
     const [isLoding, setLoding] = useState(true)
     const [services, setServices] = useState([])
+    useTitle("Services")
 
     useEffect(() => {
         fetch(`https://assignment11-server-beta.vercel.app/services`)
